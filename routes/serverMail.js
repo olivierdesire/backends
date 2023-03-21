@@ -4,9 +4,10 @@ const cors = require("cors");
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 
-const app = express();
-app.use(express.json());
-app.use(cors());
+// const app = express();
+
+router.use(cors());
+router.use(express.json());
 
 // Configuration de Mailgun
 const mailgun = new Mailgun(formData);
@@ -21,7 +22,8 @@ router.post("/form", async (req, res) => {
   // Création message mail gun
   const messageData = {
     from: `${req.body.firstname} ${req.body.lastname} <${req.body.email}>`,
-    to: "olivier.desire37@gmail.com",
+    // to: "olivier.desire37@gmail.com",
+    to: "reivilo.erised@gmail.com",
     subject: `${req.body.subject}`,
     text: req.body.message,
   };
