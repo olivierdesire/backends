@@ -7,6 +7,9 @@ const SHA256 = require("crypto-js/sha256");
 const base64 = require("crypto-js/enc-base64");
 const uid2 = require("uid2");
 
+router.use(cors());
+router.use(express.json());
+
 // model
 mongoose.connect(`${process.env.MONGODB_URI}/chatGPT-app`);
 
