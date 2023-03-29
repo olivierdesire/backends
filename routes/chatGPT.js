@@ -136,8 +136,8 @@ router.post("/chat/request", isAuthenticated, async (req, res) => {
 });
 
 // route get request
-router.get("/chat/request/list", isAuthenticated, async (req, res) => {
-  console.log("route /chat/resquest/list");
+router.get("/chat/request", isAuthenticated, async (req, res) => {
+  console.log("route /chat/resquest");
 
   try {
     const listRequest = await Request.find({ owner: req.user._id });
