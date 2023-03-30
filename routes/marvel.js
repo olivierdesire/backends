@@ -16,7 +16,7 @@ router.get("/characters", async (req, res) => {
       filters = filters + "&skip=" + req.query.skip;
     }
     const characters = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.APIKEY}` +
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.MARVEL_API_KEY}` +
         filters
     );
     return res.status(200).json(characters.data);
@@ -28,7 +28,7 @@ router.get("/characters", async (req, res) => {
 router.get("/character/:characterId", async (req, res) => {
   try {
     const character = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/character/${req.params.characterId}?apiKey=${process.env.APIKEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/character/${req.params.characterId}?apiKey=${process.env.MARVEL_API_KEY}`
     );
     return res.status(200).json(character.data);
   } catch (error) {
@@ -47,7 +47,7 @@ router.get("/comics", async (req, res) => {
   }
   try {
     const comics = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.APIKEY}` +
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}` +
         filters
     );
     return res.status(200).json(comics.data);
@@ -59,7 +59,7 @@ router.get("/comics", async (req, res) => {
 router.get("/comics/:characterId", async (req, res) => {
   try {
     const character = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.characterId}?apiKey=${process.env.APIKEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics/${req.params.characterId}?apiKey=${process.env.MARVEL_API_KEY}`
     );
     return res.status(200).json(character.data);
   } catch (error) {
@@ -70,7 +70,7 @@ router.get("/comics/:characterId", async (req, res) => {
 router.get("/comic/:comicId", async (req, res) => {
   try {
     const comic = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comic/${req.params.comicId}?apiKey=${process.env.APIKEY}`
+      `https://lereacteur-marvel-api.herokuapp.com/comic/${req.params.comicId}?apiKey=${process.env.MARVEL_API_KEY}`
     );
     return res.status(200).json(comic.data);
   } catch (error) {
