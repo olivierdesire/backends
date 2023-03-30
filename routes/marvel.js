@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 const axios = require("axios");
+
+router.use(cors());
 
 // Routes characters
 router.get("/characters", async (req, res) => {
