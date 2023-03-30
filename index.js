@@ -16,7 +16,7 @@ const chatGPTRoutes = require("./routes/chatGPT");
 app.use(chatGPTRoutes);
 
 const marvelRoutes = require("./routes/marvel");
-app.use(chatGPTRoutes);
+app.use(marvelRoutes);
 
 app.listen(process.env.PORT || 3200, () => {
   console.log("Server started");
