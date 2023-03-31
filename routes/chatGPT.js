@@ -131,7 +131,7 @@ router.post("/chat/request", isAuthenticated, async (req, res) => {
       res.status(400).json({ error: error.message });
     }
   } else {
-    res.status(400).json("Poser votre question");
+    res.status(400).json("Ask your question");
   }
 });
 
