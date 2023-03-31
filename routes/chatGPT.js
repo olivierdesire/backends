@@ -139,8 +139,16 @@ router.post("/chat/request", isAuthenticated, async (req, res) => {
 router.get("/chat/request", isAuthenticated, async (req, res) => {
   console.log("route /chat/resquest");
 
+  const filter = {
+    owner: req.user._id,
+  };
+
+  if (req.query.search) {
+    filter.request = new RegExp(req.query.search, "i");
+  }
+
   try {
-    const listRequest = await Request.find({ owner: req.user._id });
+    const listRequest = await Request.find(filter);
     res.status(200).json(listRequest);
   } catch (error) {
     res.status(400).json({ error: error.message });

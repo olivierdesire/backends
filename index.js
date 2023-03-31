@@ -18,6 +18,10 @@ app.use(chatGPTRoutes);
 const marvelRoutes = require("./routes/marvel");
 app.use(marvelRoutes);
 
+app.get("*", (req, res) => {
+  res.status(400).json("Route not found");
+});
+
 app.listen(process.env.PORT || 3200, () => {
   console.log("Server started");
 });
